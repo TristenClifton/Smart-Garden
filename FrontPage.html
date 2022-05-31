@@ -1,0 +1,154 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Needed to use the API -->
+    <script src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+
+    <script type="text/javascript" src="scripts.js"></script>
+
+    <script>
+        window.onload = FillTable;
+    </script>
+
+</head>
+
+<body>
+    <div id="mainDiv">
+        <h3>Device Status:</h3>
+        <!-- Displays status of sent command -->
+        <p>Is Currently Watering : <span id="running"></span></p>
+        <p><span id="statusSpan1"></span></p>
+        <p><span id="statusSpan2"></span></p>
+        <p><span id="statusSpan3"></span></p>
+
+        <h2>Watering Schedule</h2>
+
+        <table style="width:100%">
+            <tr>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thrusday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <td>Mon Start:
+                    <input type="time" id="monStart" name="monStart" required>
+                </td>
+                <td>Tue Start:
+                    <input type="time" id="tueStart" name="tueStart" required>
+                </td>
+                <td>Wed Start:
+                    <input type="time" id="wedStart" name="wedStart" required>
+                </td>
+                <td>Thu Start:
+                    <input type="time" id="thuStart" name="thuStart" required>
+                </td>
+                <td>Fri Start:
+                    <input type="time" id="friStart" name="friStart" required>
+                </td>
+                <td>Sat Start:
+                    <input type="time" id="satStart" name="satStart" required>
+                </td>
+                <td>Sun Start:
+                    <input type="time" id="sunStart" name="sunStart" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Mon Finish:
+                    <input type="time" id="monFinish" name="monFinish" required>
+                </td>
+                <td>Tue Finish:
+                    <input type="time" id="tueFinish" name="tueFinish" required>
+                </td>
+                <td>Wed Finish:
+                    <input type="time" id="wedFinish" name="wedFinish" required>
+                </td>
+                <td>Thu Finish:
+                    <input type="time" id="thuFinish" name="thuFinish" required>
+                </td>
+                <td>Fri Finish:
+                    <input type="time" id="friFinish" name="friFinish" required>
+                </td>
+                <td>Sat Finish:
+                    <input type="time" id="satFinish" name="satFinish" required>
+                </td>
+                <td>Sun Finish:
+                    <input type="time" id="sunFinish" name="sunFinish" required>
+                </td>
+            </tr>
+
+        </table>
+
+        <p>Press button update timetable to device</p>
+        <button id="updateTimeTableButton" onclick="UpdateTimeTable()">Update Schedule</button>
+
+
+        </p>
+        <!-- Displays status of sent command -->
+        <h2>Current Sensor Readings</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Current Temprature</th>
+                <th>Current Moisture</th>
+                <th>Current Lux</th>
+
+            </tr>
+            <tr>
+                <th>
+                    <p>Temprature: <span id="tempratureValue"></span></p>
+                </th>
+                <th>
+                    <p>Moisture: <span id="moistureValue"></span></p>
+                </th>
+                <th>
+                    <p>Lux Level: <span id="luxValue"></span></p>
+                </th>
+            </tr>
+        </table>
+
+        <h2>Auto Start</h2>
+
+        <p>Auto Start Paramaters</p>
+
+
+        </p>
+        <!-- Displays status of sent command -->
+        <p><span id="varibleOut"></span></p>
+        <table style="width:100%">
+            <tr>
+                <th>Enabled</th>
+                <th>Temprature</th>
+                <th>Moisture</th>
+                <th>Lux</th>
+                <th>Duration</th>
+
+            </tr>
+            <tr>
+                <th>
+                    <p>Y/N: <input type="checkbox" id="autoStartEnabled" name="autoStartEnabled">
+                </th>
+                <th>
+                    <p>Temprature: <input type="number" id="autoTemp" name="autoTemp" min="1" max="60"><br><br>
+                </th>
+                <th>
+                    <p>Moisture: <input type="number" id="autoMoist" name="autoMoist" min="1" max="1000"><br><br>
+                </th>
+                <th>
+                    <p>Lux Level: <input type="number" id="autoLux" name="autoLux" min="1" max="100000"><br><br>
+                </th>
+                <th>
+                    <p>Duration in Minutes: <input type="number" id="autoDuration" name="autoDuration" min="1" max="720"><br><br>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <p>Press button update timetable to auto start paramiters</p>
+    <button id="updateAutoStart" onclick="UpdateAutoStart()">Update</button>
+
+</body>
+
+</html>
